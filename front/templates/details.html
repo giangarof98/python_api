@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Data from MySQL</h1>
+    <form action="{{ url_for('update', user_id=data.id) }}" method="POST">
+        <h1>User Details</h1>
+
+        <label for="id">ID:</label>
+        <input type="text" name="id" value="{{ data.id }}"> <br>
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ data.name }}"> <br>
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" value="{{ data.email }}"> <br>
+
+        <label for="age">Age:</label>
+        <input type="text" name="age" value="{{ data.age }}"> <br>
+
+            <button>Update details</button>
+    </form>
+        <a href="/create">create a new user</a>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Data from MySQL</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>DELETE</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>
+                <form action="{{ url_for('delete', user_id=row[0]) }}" method="POST">
+                    <button>Delete</button>
+                </form>
+            </td>
+            <td>
+                <form action="{{ url_for('user', user_id=row[0]) }}" method="GET">
+                    <button>Details</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+        <a href="/create">create a new user</a>
+    
+</body>
+</html>
